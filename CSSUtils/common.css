@@ -1,0 +1,13 @@
+/* clearfix */
+.clearfix:after{
+    content:'';
+    display: table;
+    clear: both;
+}
+.clearfix{
+    *zoom: 1;/*兼容IE低版本 */
+}
+/* 盒子模型 */
+*{
+    box-sizing: border-box;
+}

@@ -1,4 +1,6 @@
-//cookie在浏览器中大小限制为4KB左右
+//cookie在浏览器中大小限制为4KB左右，推荐使用sessionStorage和localStorage，
+// sessionStorage仅在浏览器会话期间有效；
+// localStorage长期有效，但是每个域名可存储5M数据，IE8为10M。
 /**
  * 获取cookie值
  * @param {required} name 
