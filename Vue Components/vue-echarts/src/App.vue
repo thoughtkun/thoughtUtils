@@ -13,25 +13,28 @@ export default {
     return {
       option: {
         title: {
-          text: "ECharts 入门示例"
+          text: "动态Echarts"
         },
-        tooltip: {},
         legend: {
-          data: ["销量"]
+          data: ["QPS曲线"]
         },
         xAxis: {
-          data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子gg"]
+          data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
         },
         yAxis: {},
         series: [
           {
-            name: "撒尿",
-            type: "bar",
+            name: "日期",
+            type: "line",
             data: [5, 20, 36, 10, 10, 70]
           }
         ]
       },
-      timer: ""
+      timer: "",
+      chartData: {
+        xData: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
+        sData: [5, 20, 36, 10, 10, 70]
+      }
     };
   },
   components: {
@@ -42,22 +45,14 @@ export default {
   },
   methods: {
     refreshData() {
-      this.timer = setInterval(() => {
-        let temObj = { ...this.option };
-        if (
-          temObj.xAxis.data.length < 10 &&
-          temObj.series[0].data.length < 10
-        ) {
-          temObj.xAxis.data.push("haha");
-          temObj.series[0].data.push(50);
-        } else {
-          temObj.xAxis.data.push("haha");
-          temObj.series[0].data.push(50);
-          temObj.xAxis.data.shift();
-          temObj.series[0].data.shift();
-        }
-        this.option = temObj;
-      }, 1000);
+      let xData = this.chartData.xData,
+        sData = this.chartData.sData;
+      for (let i = 0; i < xData.length; i++) {
+        this.timer = setTimeout(() => {
+          this.option.xAxis.data.push(xData[i]);
+          this.option.series[0].data.push(sData[i]);
+        }, 1000*i)
+      }
     },
     stopInterval() {
       clearInterval(this.timer);

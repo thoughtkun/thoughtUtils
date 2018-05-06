@@ -26,20 +26,26 @@ export default {
       default() {
         return {
           title: {
-            text: "ECharts 入门示例"
+            text: "vue-Echarts"
           },
-          tooltip: {},
           legend: {
             data: ["销量"]
           },
           xAxis: {
-            data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子","tuoxie"]
+            data: [
+              "衬衫",
+              "羊毛衫",
+              "雪纺衫",
+              "裤子",
+              "高跟鞋",
+              "袜子",
+              "tuoxie"
+            ]
           },
-          yAxis: {},
           series: [
             {
               name: "销量",
-              type: "bar",
+              type: "line",
               data: [5, 20, 36, 10, 10, 70]
             }
           ]
@@ -58,12 +64,12 @@ export default {
   mounted() {
     this.init();
   },
-  beforeDestroy() {
-    window.removeEventListener("resize", this.chart.resize);
-    if (this.chart) {
-      this.chart.dispose();
-    }
-  },
+  // beforeDestroy() {
+  //   window.removeEventListener("resize", this.chart.resize);
+  //   if (this.chart) {
+  //     this.chart.dispose();
+  //   }
+  // },
   methods: {
     init() {
       this.chart = this.$echarts.init(document.getElementById(this.id));
@@ -80,11 +86,9 @@ export default {
           } else {
             this.chart.setOption(oldVal);
           }
-          this.chart.resize();
         } else {
-          setTimeout(() => {
-            this.init();
-          }, 300);
+          this.init();
+          F;
         }
       },
       deep: true
