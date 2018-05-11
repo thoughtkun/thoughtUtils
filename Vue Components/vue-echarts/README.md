@@ -1,21 +1,15 @@
 # vue-echarts
 
-> A Vue.js project
+> Vue结合Echarts构建的可支持实时监控数据变化动态渲染的图表组件
 
-## Build Setup
+## 参数说明
 
-``` bash
-# install dependencies
-npm install
+参数|描述|说明
+--|--|--
+id|图片唯一标识|必填，String。
+width|图表宽度|可选，String。默认为100%
+height|图表高度|可选，String。默认为300px
+option|图表配置项|可选，Object。默认使用echarts教程示例折线图
 
-# serve with hot reload at localhost:8080
-npm run dev
+## 使用说明
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
